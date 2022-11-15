@@ -50,11 +50,16 @@ public class ProgramaController {
         return ResponseEntity.ok(programa);
     }
     
-    @ApiOperation(value = "Crea una programa")
-    @PostMapping("/save")
-    public Programa save(@RequestBody Programa programa){
-        return programaService.save(programa);
+   @ApiOperation(value = "Crea una programa")
+    @PostMapping
+    public ResponseEntity<?> save(@RequestBody Programa programa) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("success", true);
+        result.put("message", "Programa registrado correctamente");
+        result.put("data", programaService.save(programa));
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
     
     @ApiOperation(value = "Modifica un programa")
     @PutMapping("/update")
