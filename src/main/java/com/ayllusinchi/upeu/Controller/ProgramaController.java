@@ -30,27 +30,28 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "Microservicio de Gestion de los programas", description = "Microservicio de Gestion de los programas")
 public class ProgramaController {
     
-    @Autowired
+     @Autowired
     ProgramaService programaService;
-    
+
     @ApiOperation(value = "Lista de programas")
-    @GetMapping()
-    public ResponseEntity<?> findAll(){
+    @GetMapping
+    public ResponseEntity<?> findAll() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
-        result.put("message", "Lista de Personas");
+        result.put("message", "Lista de programas");
         result.put("data", programaService.findAll());
-        return new ResponseEntity<>(result,HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    
-    @ApiOperation(value = "Obtiene datos de un programa")
+
+    @ApiOperation(value = "Obtiene datos de una programa")
     @GetMapping("/{id}")
-    public ResponseEntity<Programa> findById(@PathVariable Long id){
+    public ResponseEntity<Programa> findById(@PathVariable Long id) {
         Programa programa = programaService.findById(id);
         return ResponseEntity.ok(programa);
     }
+
     
-   @ApiOperation(value = "Crea una programa")
+    @ApiOperation(value = "Crea una programa")
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Programa programa) {
         HashMap<String, Object> result = new HashMap<>();
@@ -61,16 +62,43 @@ public class ProgramaController {
     }
 
     
-    @ApiOperation(value = "Modifica un programa")
-    @PutMapping("/update")
-    public Programa update(@RequestBody Programa programa){
-        return programaService.save(programa);
+    @ApiOperation(value = "Modifica una programa")
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable(value = "id") Long id, @RequestBody Programa programa) {
+        HashMap<String, Object> result = new HashMap<>();
+        Programa data = programaService.findById(id);
+        if (data == null) {
+            result.put("success", false);
+            result.put("message", "No existe registro con Id: " + id);
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        }
+        try {
+            programa.setProId(id);
+            programaService.save(programa);
+            result.put("success", true);
+            result.put("message", "Datos actualizados correctamente.");
+            result.put("data", programa);
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(new Exception(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     
     @ApiOperation(value = "Elimina un programa")
-    @DeleteMapping("/id")
-    public void deleteById(@PathVariable Long id){
-        programaService.deleteById(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id) {
+        HashMap<String, Object> result = new HashMap<>();
+    Programa data = programaService.findById(id);
+    if(data == null){
+        result.put("success", false);
+        result.put("message", "No existe programa con id:" + id);
+  return new ResponseEntity <>(result, HttpStatus.NOT_FOUND);
+    } else{
+  programaService.deleteById(id);
+            result.put("success", true);
+            result.put("message", "Registro Eliminado correctamente");
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
     }
     
 }
