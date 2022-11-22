@@ -1,0 +1,37 @@
+[33mcommit 2e42f539f6eccf6d816c9ab3748551dfc2f5b06a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Marco <marco.rios@upeu.edu.pe>
+Date:   Mon Nov 21 20:58:30 2022 -0500
+
+    Guardar-editar
+
+[33mcommit 7c5392efccd61811af0949228d2790331b028d93[m
+Author: Marco <marco.rios@upeu.edu.pe>
+Date:   Mon Nov 21 20:55:41 2022 -0500
+
+    Revert "Guardar agregado"
+    
+    This reverts commit 72bf27559fe6d83bf4fd8952e15c058b9bf18049.
+
+[33mcommit 72bf27559fe6d83bf4fd8952e15c058b9bf18049[m
+Author: Marco <marco.rios@upeu.edu.pe>
+Date:   Mon Nov 21 20:48:09 2022 -0500
+
+    Guardar agregado
+
+[33mcommit ac7064e4f7621440c354437a6f1c02a29b1a5683[m
+Author: Marco <marco.rios@upeu.edu.pe>
+Date:   Mon Nov 14 19:37:19 2022 -0500
+
+    Guardar
+
+[33mcommit d78bf0a2e1fc5ec6a90af46a9ae4204088627c41[m
+Author: Marco <marco.rios@upeu.edu.pe>
+Date:   Mon Nov 14 17:53:47 2022 -0500
+
+    Programas con angular
+
+[33mcommit 18f32d92f351de3202baa48ed0af72df0b1a5eec[m
+Author: antoniozamora2002 <antonio.zamora@upeu.edu.pe>
+Date:   Sat Oct 22 10:59:17 2022 -0500
+
+    Se agrego el proyecto
