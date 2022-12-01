@@ -44,14 +44,14 @@ public class TallerController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
     
-   @ApiOperation(value = "Obtiene datos de una taller")
+   @ApiOperation(value = "Obtiene datos de un taller")
     @GetMapping("/{id}")
     public ResponseEntity<Taller> findById(@PathVariable Long id) {
         Taller taller = tallerService.findById(id);
         return ResponseEntity.ok(taller);
     }
     
-    @ApiOperation(value = "Crea una taller")
+    @ApiOperation(value = "Crea un taller")
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Taller taller) {
         HashMap<String, Object> result = new HashMap<>();
@@ -61,7 +61,7 @@ public class TallerController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
     
-    @ApiOperation(value = "Modifica una taller")
+    @ApiOperation(value = "Modifica un taller")
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable(value = "id") Long id, @RequestBody Taller taller) {
         HashMap<String, Object> result = new HashMap<>();

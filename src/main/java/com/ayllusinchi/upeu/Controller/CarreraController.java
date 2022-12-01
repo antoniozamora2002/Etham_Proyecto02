@@ -33,17 +33,17 @@ public class CarreraController {
     @Autowired
     CarreraService carreraService;
     
-    @ApiOperation(value = "Lista de facultades")
+    @ApiOperation(value = "Lista de carreras")
     @GetMapping
     public ResponseEntity<?> findAll() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
-        result.put("message", "Lista de facultades");
+        result.put("message", "Lista de carreras");
         result.put("data", carreraService.findAll());
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Obtiene datos de facultades")
+    @ApiOperation(value = "Obtiene datos de carrera")
     @GetMapping("/{id}")
     public ResponseEntity<Carrera> findById(@PathVariable Long id) {
         Carrera carrera = carreraService.findById(id);
@@ -51,18 +51,18 @@ public class CarreraController {
     }
 
     
-    @ApiOperation(value = "Crea una facultad")
+    @ApiOperation(value = "Crea una carrera")
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Carrera carrera) {
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
-        result.put("message", "Facultad registrado correctamente");
+        result.put("message", "Carrera registrado correctamente");
         result.put("data", carreraService.save(carrera));
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     
-    @ApiOperation(value = "Modifica una facultad")
+    @ApiOperation(value = "Modifica una carrera")
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable(value = "id") Long id, @RequestBody Carrera carrera) {
         HashMap<String, Object> result = new HashMap<>();
@@ -84,14 +84,14 @@ public class CarreraController {
         }
     }
     
-    @ApiOperation(value = "Elimina una facultad")
+    @ApiOperation(value = "Elimina una carrera")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         HashMap<String, Object> result = new HashMap<>();
     Carrera data = carreraService.findById(id);
     if(data == null){
         result.put("success", false);
-        result.put("message", "No existe programa con id:" + id);
+        result.put("message", "No existe carrera con id:" + id);
   return new ResponseEntity <>(result, HttpStatus.NOT_FOUND);
     } else{
   carreraService.deleteById(id);

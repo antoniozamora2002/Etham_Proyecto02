@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "Microservicio de Gestion de los programas", description = "Microservicio de Gestion de los programas")
 public class ProgramaController {
     
-     @Autowired
+    @Autowired
     ProgramaService programaService;
 
     @ApiOperation(value = "Lista de programas")
@@ -43,7 +43,7 @@ public class ProgramaController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Obtiene datos de una programa")
+    @ApiOperation(value = "Obtiene datos de un programa")
     @GetMapping("/{id}")
     public ResponseEntity<Programa> findById(@PathVariable Long id) {
         Programa programa = programaService.findById(id);
@@ -51,7 +51,7 @@ public class ProgramaController {
     }
 
     
-    @ApiOperation(value = "Crea una programa")
+    @ApiOperation(value = "Crea un programa")
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Programa programa) {
         HashMap<String, Object> result = new HashMap<>();
@@ -63,7 +63,7 @@ public class ProgramaController {
     //a
 
     
-    @ApiOperation(value = "Modifica una programa")
+    @ApiOperation(value = "Modifica un programa")
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable(value = "id") Long id, @RequestBody Programa programa) {
         HashMap<String, Object> result = new HashMap<>();

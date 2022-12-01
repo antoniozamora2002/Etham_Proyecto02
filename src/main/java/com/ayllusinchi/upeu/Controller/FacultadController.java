@@ -91,7 +91,7 @@ public class FacultadController {
     Facultad data = facultadService.findById(id);
     if(data == null){
         result.put("success", false);
-        result.put("message", "No existe programa con id:" + id);
+        result.put("message", "No existe facultad con id:" + id);
   return new ResponseEntity <>(result, HttpStatus.NOT_FOUND);
     } else{
   facultadService.deleteById(id);
