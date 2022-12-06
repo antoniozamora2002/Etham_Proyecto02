@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
-@RequestMapping("/personataller")
+@RequestMapping("/personatalleres")
 @Api(value = "Microservicio de Gestion de las personas en los talleres", description = "Microservicio de Gestion de las personas en los talleres")
 public class PersonaTallerController {
     
@@ -74,7 +74,7 @@ public class PersonaTallerController {
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         }
         try {
-            personaTaller.setPeId(id);
+            personaTaller.setPetaId(id);
             personaTallerService.save(personaTaller);
             result.put("success", true);
             result.put("message", "Datos actualizados correctamente.");
