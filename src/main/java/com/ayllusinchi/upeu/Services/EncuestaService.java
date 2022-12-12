@@ -11,6 +11,7 @@ import java.util.List;
  *
  * @author marco
  */
+
 public interface EncuestaService {
     
     public List<Encuesta> findAll();

@@ -6,18 +6,26 @@ package com.ayllusinchi.upeu.Services.Impl;
 
 import com.ayllusinchi.upeu.Repository.EncuestaRepository;
 import com.ayllusinchi.upeu.Services.EncuestaService;
+import com.ayllusinchi.upeu.entidades.Carrera;
 import com.ayllusinchi.upeu.entidades.Encuesta;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author marco
  */
+ @Service
 public class EncuestaServiceImpl implements EncuestaService {
 
     @Autowired
     EncuestaRepository encuestaRepository;
+    
+    @Override
+    public List<Encuesta> findAll() {
+                return (List<Encuesta>) encuestaRepository.findAll();
+    }
     
     @Override
     public Encuesta findById(Long id) {
@@ -39,8 +47,5 @@ public class EncuestaServiceImpl implements EncuestaService {
         encuestaRepository.deleteById(id);
     }
 
-    @Override
-    public List<Encuesta> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
