@@ -17,16 +17,16 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "perona_taller")
+@Table(name = "persona_taller")
 public class PersonaTaller {
     
     @Id
     @Column(name = "peta_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long peId;
+    private Long petaId;
     
     @Column (name = "pe_estado_asistencia")
-    private int peEstadoAsistencia;
+    private int petaEstadoAsistencia;
     
     @ManyToOne
     @JoinColumn(name = "pe_id")
