@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -34,8 +33,7 @@ public class Taller {
     private String taDesc;
     
     @Column(name = "ta_fecha")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date taFecha;
+    private String taFecha;
     
     @Column(name = "ta_hora")
     private String taHora;
