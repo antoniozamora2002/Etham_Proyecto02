@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
-@RequestMapping("/encuesta")
+@RequestMapping("/encuestas")
 @Api(value = "Microservicio de Gestion de las encuesta", description = "Microservicio de Gestion de las encuesta")
 public class EncuestaController{
     

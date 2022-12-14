@@ -36,5 +36,8 @@ public class PersonaTaller {
     @JoinColumn(name = "ta_id")
     private Taller taller;
     
+    @Column(name = "peta_fecha")
+    private String petaFecha;
+    
     
 }
