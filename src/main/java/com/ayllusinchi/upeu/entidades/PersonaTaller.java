@@ -26,7 +26,7 @@ public class PersonaTaller {
     private Long petaId;
     
     @Column (name = "pe_estado_asistencia")
-    private int petaEstadoAsistencia;
+    private String petaEstadoAsistencia;
     
     @ManyToOne
     @JoinColumn(name = "pe_id")

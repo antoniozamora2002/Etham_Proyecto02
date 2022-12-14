@@ -3,6 +3,7 @@ package com.ayllusinchi.upeu.Services.Impl;
 import com.ayllusinchi.upeu.Repository.PersonaTallerRepository;
 import com.ayllusinchi.upeu.Services.PersonaTallerService;
 import com.ayllusinchi.upeu.entidades.PersonaTaller;
+import com.ayllusinchi.upeu.entidades.Taller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,11 @@ public class PersonaTallerServiceImpl implements PersonaTallerService{
     @Override
     public void deleteById(Long id) {
         personaTallerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<PersonaTaller> findByTaller(Taller id) {
+       return (List<PersonaTaller>) personaTallerRepository.findByTaller(id);
     }
     
 }

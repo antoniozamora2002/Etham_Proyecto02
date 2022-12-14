@@ -2,6 +2,7 @@ package com.ayllusinchi.upeu.Controller;
 
 import com.ayllusinchi.upeu.Services.PersonaTallerService;
 import com.ayllusinchi.upeu.entidades.PersonaTaller;
+import com.ayllusinchi.upeu.entidades.Taller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.HashMap;
@@ -48,6 +49,16 @@ public class PersonaTallerController {
     public ResponseEntity<PersonaTaller> findById(@PathVariable Long id) {
         PersonaTaller personaTaller = personaTallerService.findById(id);
         return ResponseEntity.ok(personaTaller);
+    }
+    
+    @ApiOperation(value = "Obtiene datos de una pérsona por un taller")
+    @GetMapping("/Taller/{id}")
+    public ResponseEntity<?> findByTaller(@PathVariable Taller id) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("success", true);
+        result.put("message", "Lista de personaTaller");
+        result.put("data", personaTallerService.findByTaller(id));
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     
